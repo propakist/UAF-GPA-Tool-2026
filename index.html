@@ -3,304 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free CGPA and GPA Calculator - Calculate your academic grade point average instantly">
-    <meta name="keywords" content="CGPA calculator, GPA calculator, grade calculator, UAF">
-    <meta name="author" content="Your Name">
-    <meta name="theme-color" content="#2563eb">
-    <title>CGPA & GPA Calculator - Calculate Your Academic Performance</title>
-    <link rel="stylesheet" href="styles.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"></script>
+    <title>Grade Theft Auto - UAF GPA Tool</title>
+    <style>
+        body { 
+            font-family: 'Arial Black', Gadget, sans-serif; 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        .calc-box { 
+            background: rgba(0, 0, 0, 0.85); 
+            padding: 40px; 
+            border: 4px solid #fdbb2d; 
+            border-radius: 0px; 
+            display: inline-block; 
+            box-shadow: 10px 10px 0px #000;
+            max-width: 400px;
+            margin-top: 50px;
+        }
+        h1 { color: #fdbb2d; font-size: 3rem; margin-bottom: 5px; text-shadow: 3px 3px #000; }
+        h3 { letter-spacing: 5px; margin-bottom: 30px; font-size: 0.9rem; }
+        input { 
+            margin: 10px 0; 
+            padding: 15px; 
+            width: 90%; 
+            background: #222; 
+            border: 1px solid #444; 
+            color: #fdbb2d; 
+            font-weight: bold;
+        }
+        button { 
+            background: #fdbb2d; 
+            color: black; 
+            padding: 15px 30px; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: 900; 
+            width: 100%; 
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        button:hover { background: #fff; }
+        #result { 
+            margin-top: 30px; 
+            font-size: 2rem; 
+            font-weight: bold; 
+        }
+        .footer {
+            margin-top: 50px;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            font-size: 0.8rem;
+            border-top: 2px solid #fdbb2d;
+        }
+        .footer a { color: #fdbb2d; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">📊</span>
-                <span class="logo-text">GPA Calculator</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="privacy-policy.html">Privacy</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1 class="hero-title">CGPA & GPA Calculator</h1>
-            <p class="hero-subtitle">Calculate your academic performance instantly - Perfect for UAF students</p>
-            <div class="hero-badge">✨ Free Tool • No Registration Required</div>
+    <div class="calc-box">
+        <h1>GTA</h1>
+        <h3>UAF GPA CALCULATOR</h3>
+        
+        <div id="calculator">
+            <input type="number" id="qualityPoints" placeholder="TOTAL QUALITY POINTS">
+            <br>
+            <input type="number" id="creditHours" placeholder="TOTAL CREDIT HOURS">
+            <br>
+            <button onclick="calculateGPA()">START CALCULATION</button>
+            
+            <div id="result">---</div>
         </div>
-    </header>
-
-    <!-- Ad Space 1 - Top Banner -->
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-             data-ad-slot="1234567890"
-             data-ad-format="horizontal"
-             data-full-width-responsive="true"></ins>
     </div>
 
-    <!-- Main Content -->
-    <main class="container main-content">
-        <!-- Slider Feature Section -->
-        <section class="slide-section">
-            <div class="slide-container">
-                <div class="slide-card">
-                    <div class="slide-number-box" id="slideNumber">
-                        <span class="slide-number-text">Slide 1</span>
-                    </div>
-                    <div class="slide-content">
-                        <h2>How It Works</h2>
-                        <p>Enter your subjects, credit hours, and grades. Our calculator will compute your CGPA/GPA instantly.</p>
-                    </div>
-                </div>
-                <div class="slide-card">
-                    <div class="slide-number-box" id="slideNumber2">
-                        <span class="slide-number-text">Slide 2</span>
-                    </div>
-                    <div class="slide-content">
-                        <h2>What is CGPA?</h2>
-                        <p>CGPA (Cumulative Grade Point Average) is your overall academic grade point average across all semesters.</p>
-                    </div>
-                </div>
-                <div class="slide-card">
-                    <div class="slide-number-box" id="slideNumber3">
-                        <span class="slide-number-text">Slide 3</span>
-                    </div>
-                    <div class="slide-content">
-                        <h2>Get Your Results</h2>
-                        <p>Click 'Calculate' to see your instant results with detailed grade breakdowns.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-controls">
-                <button class="slide-btn prev-btn" id="prevSlide">← Previous</button>
-                <span class="slide-indicator" id="slideIndicator">1 / 3</span>
-                <button class="slide-btn next-btn" id="nextSlide">Next →</button>
-            </div>
-            <p class="slide-hint">💡 Click on any slide number to reveal the price (₨30 for full access)</p>
-        </section>
+    <div class="footer">
+        <p>DEVELOPED BY: <strong>MUHAMMAD AMIR</strong></p>
+        <p>CONTACT: <a href="mailto:muhammedamirranjha@gmail.com">muhammedamirranjha@gmail.com</a></p>
+        <p>UAF SOCIOLOGY DEPARTMENT | 2026</p>
+    </div>
 
-        <!-- Calculator Section -->
-        <section id="calculator" class="calculator-section">
-            <h2 class="section-title">GPA Calculator</h2>
-            
-            <div class="calculator-container">
-                <div class="input-group">
-                    <label for="calculatorType">Select Calculator Type:</label>
-                    <select id="calculatorType" class="form-control">
-                        <option value="semester">Semester GPA</option>
-                        <option value="cumulative">Cumulative CGPA</option>
-                    </select>
-                </div>
-
-                <div id="subjectsContainer" class="subjects-container">
-                    <!-- Subjects will be added here dynamically -->
-                </div>
-
-                <button type="button" class="btn btn-secondary" id="addSubjectBtn">+ Add Subject</button>
-
-                <div class="button-group">
-                    <button type="button" class="btn btn-primary" id="calculateBtn">Calculate GPA</button>
-                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div id="resultsSection" class="results-section hidden">
-                <h3>Your Results</h3>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <div class="result-label">GPA/CGPA</div>
-                        <div class="result-value" id="resultGPA">0.00</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-label">Grade</div>
-                        <div class="result-value" id="resultGrade">N/A</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-label">Total Credits</div>
-                        <div class="result-value" id="resultCredits">0</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-label">Status</div>
-                        <div class="result-value" id="resultStatus">N/A</div>
-                    </div>
-                </div>
-                <div class="result-message" id="resultMessage"></div>
-            </div>
-        </section>
-
-        <!-- Ad Space 2 - Middle Banner -->
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-                 data-ad-slot="9876543210"
-                 data-ad-format="horizontal"
-                 data-full-width-responsive="true"></ins>
-        </div>
-
-        <!-- Info Section -->
-        <section class="info-section">
-            <h2 class="section-title">How to Calculate Your GPA</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">1️⃣</div>
-                    <h3>Enter Subjects</h3>
-                    <p>Add each subject with its credit hours and grade received.</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">2️⃣</div>
-                    <h3>Input Grades</h3>
-                    <p>Enter grades as numeric values (A=4.0, B=3.0, C=2.0, etc.)</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">3️⃣</div>
-                    <h3>Click Calculate</h3>
-                    <p>Get instant results with your GPA and overall performance status.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade Scale Reference -->
-        <section class="grade-scale">
-            <h2 class="section-title">Grade Scale Reference</h2>
-            <table class="grade-table">
-                <thead>
-                    <tr>
-                        <th>Letter Grade</th>
-                        <th>Grade Point</th>
-                        <th>Percentage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>A+</td>
-                        <td>4.0</td>
-                        <td>95-100</td>
-                    </tr>
-                    <tr>
-                        <td>A</td>
-                        <td>4.0</td>
-                        <td>90-94</td>
-                    </tr>
-                    <tr>
-                        <td>B+</td>
-                        <td>3.5</td>
-                        <td>85-89</td>
-                    </tr>
-                    <tr>
-                        <td>B</td>
-                        <td>3.0</td>
-                        <td>80-84</td>
-                    </tr>
-                    <tr>
-                        <td>C+</td>
-                        <td>2.5</td>
-                        <td>75-79</td>
-                    </tr>
-                    <tr>
-                        <td>C</td>
-                        <td>2.0</td>
-                        <td>70-74</td>
-                    </tr>
-                    <tr>
-                        <td>D</td>
-                        <td>1.0</td>
-                        <td>60-69</td>
-                    </tr>
-                    <tr>
-                        <td>F</td>
-                        <td>0.0</td>
-                        <td>Below 60</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Ad Space 3 - Bottom Banner -->
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-                 data-ad-slot="5555555555"
-                 data-ad-format="horizontal"
-                 data-full-width-responsive="true"></ins>
-        </div>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Us</h3>
-                    <p>Have questions? We'd love to hear from you!</p>
-                    <ul class="contact-list">
-                        <li>
-                            <span class="contact-icon">📧</span>
-                            <a href="mailto:contact@gpacalculator.com">contact@gpacalculator.com</a>
-                        </li>
-                        <li>
-                            <span class="contact-icon">💬</span>
-                            <a href="mailto:support@gpacalculator.com">support@gpacalculator.com</a>
-                        </li>
-                    </ul>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Policy Links -->
-        <section class="policy-section">
-            <h2 class="section-title">Legal & Policies</h2>
-            <div class="policy-grid">
-                <div class="policy-card">
-                    <h3>📋 Terms of Service</h3>
-                    <p>Review our terms and conditions</p>
-                    <a href="terms.html" class="policy-link">Read Terms</a>
-                </div>
-                <div class="policy-card">
-                    <h3>🔒 Privacy Policy</h3>
-                    <p>How we protect your data and privacy</p>
-                    <a href="privacy-policy.html" class="policy-link">Read Policy</a>
-                </div>
-                <div class="policy-card">
-                    <h3>🎯 Ad Policy</h3>
-                    <p>Information about advertisements on our site</p>
-                    <a href="ad-policy.html" class="policy-link">Read Policy</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 CGPA & GPA Calculator. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="ad-policy.html">Ad Policy</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        function calculateGPA() {
+            const qp = parseFloat(document.getElementById('qualityPoints').value);
+            const ch = parseFloat(document.getElementById('creditHours').value);
+
+            if (isNaN(qp) || isNaN(ch) || ch <= 0) {
+                alert("Enter valid numbers, Amir!");
+                return;
+            }
+
+            const gpa = (qp / ch).toFixed(2);
+            let message = "";
+            let color = "";
+
+            if (gpa >= 3.5) {
+                message = "MISSION PASSED!<br><span style='font-size: 1.2rem'>RESPECT +</span>";
+                color = "#5cb85c"; // Green
+            } else if (gpa >= 2.0) {
+                message = "PASSED<br><span style='font-size: 1.2rem'>HUSTLE CONTINUES</span>";
+                color = "#fdbb2d"; // Gold
+            } else {
+                message = "WASTED<br><span style='font-size: 1.2rem'>PROBATION HIT</span>";
+                color = "#b21f1f"; // Red
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.color = color;
+            resultDiv.innerHTML = "GPA: " + gpa + "<br>" + message;
+        }
     </script>
 </body>
 </html>
